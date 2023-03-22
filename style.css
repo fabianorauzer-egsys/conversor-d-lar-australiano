@@ -1,0 +1,113 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    
+    .imprimir-tabela, .imprimir-tabela * {
+        visibility: visible;
+    }
+    
+    .imprimir-tabela {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}
+
+h1 {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.conversor {
+    margin: 20px auto;
+    width: 80%;
+    max-width: 800px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px 40px;
+}
+
+.conversor form,
+.conversor table {
+    margin: 0 auto;
+}
+
+form label,
+form input {
+    margin-bottom: 15px;
+}
+
+form button {
+    background-color: #008CBA;
+}
+
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+form label {
+    margin-bottom: 10px;
+}
+
+form input {
+    width: 200px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+form button {
+    margin-top: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+table {
+    margin-top: 20px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#imprimir {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    text-align: center;
+}
