@@ -14,10 +14,6 @@ function setCache(valores) {
   localStorage.setItem(CACHE_KEY, JSON.stringify(valores));
 }
 
-function converterDolaresParaReais(valor) {
-  return valor * (isNaN(valor) ? 3.51 : valor);
-}
-
 function adicionarLinha(reais, dolares, descricao, temAcomodacao) {
   const tbody = document.querySelector('#tabela tbody');
   const linha = document.createElement('tr');
