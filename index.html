@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conversor de Dólares Australianos</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h1>Conversor de Dólares Australianos</h1>
+
+    <div class="conversor">    
+        <form id="form-dolar">
+            <label for="valor-dolar">Valor em Dólares Australianos:</label>
+            <input id="valor-dolar" type="number" step="0.01" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" >
+            <br /><label for="descricao-dolar">Descrição:</label>
+            <input id="descricao-dolar" type="text" >
+            <br /><label for="acomodacao">Possui acomodação?</label>
+            <input id="acomodacao-dolar" type="checkbox">
+            <button type="submit">Converter para Reais</button>
+        </form>
+        <br />
+        <table id="tabela" class="imprimir-tabela">
+            <thead>
+                <tr>
+                    <th>Valor em Reais</th>
+                    <th>Valor em Dólares Australianos</th>
+                    <th>Descrição</th>
+                    <th>Acomodação</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <button id="imprimir" onclick="window.print()">Salvar como PDF</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
