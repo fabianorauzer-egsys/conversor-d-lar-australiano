@@ -1,4 +1,4 @@
-# conversor-dólar-australiano
+# Conversor dólar australiano
 Projeto criado para uso pessoal, com conversão de reais para dólares australianos, com descrição, valor e uma checkbox de possui acomodação - se marcada, adiciona sim na tabela, do contrário adiciona não. <br /> <br />
 Todos os dados são armazenados em uma tabela onde há possibilidade de exclusão e também há possibilidade de imprimir a tabela com os dados em PDF
 
