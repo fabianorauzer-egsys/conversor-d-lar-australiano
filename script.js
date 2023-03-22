@@ -1,5 +1,4 @@
 const CACHE_KEY = 'conversor_cache';
-const COTACAO = 3.50;
 
 function getCache() {
     let cache = localStorage.getItem(CACHE_KEY);
@@ -13,8 +12,16 @@ function setCache(valores) {
     localStorage.setItem(CACHE_KEY, JSON.stringify(valores));
 }
 
-function converterDolaresParaReais(valor) {
-    return valor * COTACAO;
+async function getDolarAustraliano() {
+    const response = await fetch(`http://data.fixer.io/api/latest?access_key=HAJy9BBZ0avu5gigNM9O1hNXAPTJZYlX&symbols=AUD`);
+    const data = await response.json();
+    const cotacao = data.rates.AUD;
+    return cotacao;
+}
+
+async function converterDolaresParaReais(valor) {
+    const cotacao = await getDolarAustraliano();
+    return valor * cotacao;
 }
 
 function adicionarLinha(reais, dolares, descricao, temAcomodacao) {
@@ -68,29 +75,29 @@ function atualizarTabela() {
 
 function onSubmitDolar(event) {
     event.preventDefault();
-  
+
     const valorInput = document.querySelector('#valor-dolar');
     const valor = parseFloat(valorInput.value);
-  
+
     const descricaoInput = document.querySelector('#descricao-dolar');
     const descricao = descricaoInput.value;
-  
+
     const acomodacaoInput = document.querySelector('#acomodacao-dolar');
     const temAcomodacao = acomodacaoInput.checked;
-  
+
     if (!isNaN(valor)) {
-      const reais = converterDolaresParaReais(valor);
-      adicionarLinha(reais, valor, descricao, temAcomodacao);
-  
-      const cache = getCache();
-      cache.push([reais, valor, descricao, temAcomodacao]);
-      setCache(cache);
-  
-      valorInput.value = '';
-      descricaoInput.value = '';
-      acomodacaoInput.checked = false;
+        const reais = converterDolaresParaReais(valor);
+        adicionarLinha(reais, valor, descricao, temAcomodacao);
+
+        const cache = getCache();
+        cache.push([reais, valor, descricao, temAcomodacao]);
+        setCache(cache);
+
+        valorInput.value = '';
+        descricaoInput.value = '';
+        acomodacaoInput.checked = false;
     }
-  }
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     atualizarTabela();
